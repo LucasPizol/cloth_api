@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       end
 
       get "me", to: "users#me"
+
+      resources :items do
+        resources :item_variants, only: %i[create update destroy]
+      end
     end
   end
 end
